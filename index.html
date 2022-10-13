@@ -39,6 +39,23 @@
         }
       }
     </style>
+    <script>
+      window.addEventListener('load', (event) => {
+        var image = document.querySelector('img');
+        var isLoaded = image.complete && image.naturalHeight !== 0;
+
+        var newImg = new Image();
+        newImg.src = 'images/pfp.jpg';
+
+        if (newImg.complete) {
+          image.src = 'images/pfp.jpg';
+        } else {
+          newImg.onload = function () {
+            image.src = 'images/pfp.jpg';
+          };
+        }
+      });
+    </script>
   </head>
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
